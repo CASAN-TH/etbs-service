@@ -16,7 +16,23 @@ describe('Source CRUD routes tests', function () {
 
     before(function (done) {
         mockup = {
-            name: 'name'
+            name: "sourcename",
+            sourcetype: "DB",
+            sourcedb: {
+                dbtype: "sql",
+                host: "1.1.1.1",
+                username: "test",
+                password: "123456",
+            },
+            sourcefile: {
+                filetype: "excel",
+                filepath: ""
+            },
+            query: "",
+            field: [{
+                fieldname: "",
+                fieldtype: "",
+            }]
         };
         credentials = {
             username: 'username',
@@ -32,18 +48,18 @@ describe('Source CRUD routes tests', function () {
         done();
     });
 
-    it('should be Source get use token', (done)=>{
+    it('should be Source get use token', (done) => {
         request(app)
-        .get('/api/sources')
-        .set('Authorization', 'Bearer ' + token)
-        .expect(200)
-        .end((err, res)=>{
-            if (err) {
-                return done(err);
-            }
-            var resp = res.body;
-            done();
-        });
+            .get('/api/sources')
+            .set('Authorization', 'Bearer ' + token)
+            .expect(200)
+            .end((err, res) => {
+                if (err) {
+                    return done(err);
+                }
+                var resp = res.body;
+                done();
+            });
     });
 
     it('should be Source get by id', function (done) {
@@ -69,13 +85,22 @@ describe('Source CRUD routes tests', function () {
                         var resp = res.body;
                         assert.equal(resp.status, 200);
                         assert.equal(resp.data.name, mockup.name);
+                        assert.equal(resp.data.sourcetype, mockup.sourcetype);
+                        assert.equal(resp.data.sourcedb.dbtype, mockup.sourcedb.dbtype);
+                        assert.equal(resp.data.sourcedb.host, mockup.sourcedb.host);
+                        assert.equal(resp.data.sourcedb.username, mockup.sourcedb.username);
+                        assert.equal(resp.data.sourcedb.password, mockup.sourcedb.password);
+                        assert.equal(resp.data.sourcefile.filetype, mockup.sourcefile.filetype);
+                        assert.equal(resp.data.sourcefile.filepath, mockup.sourcefile.filepath);
+                        assert.equal(resp.data.query, mockup.query);
+                        assert.equal(resp.data.field[0].fieldname, mockup.field[0].fieldname);
                         done();
                     });
             });
 
     });
 
-    it('should be Source post use token', (done)=>{
+    it('should be Source post use token', (done) => {
         request(app)
             .post('/api/sources')
             .set('Authorization', 'Bearer ' + token)
@@ -86,7 +111,17 @@ describe('Source CRUD routes tests', function () {
                     return done(err);
                 }
                 var resp = res.body;
+                // assert.equal(resp.data.name, mockup.name);
                 assert.equal(resp.data.name, mockup.name);
+                assert.equal(resp.data.sourcetype, mockup.sourcetype);
+                assert.equal(resp.data.sourcedb.dbtype, mockup.sourcedb.dbtype);
+                assert.equal(resp.data.sourcedb.host, mockup.sourcedb.host);
+                assert.equal(resp.data.sourcedb.username, mockup.sourcedb.username);
+                assert.equal(resp.data.sourcedb.password, mockup.sourcedb.password);
+                assert.equal(resp.data.sourcefile.filetype, mockup.sourcefile.filetype);
+                assert.equal(resp.data.sourcefile.filepath, mockup.sourcefile.filepath);
+                assert.equal(resp.data.query, mockup.query);
+                assert.equal(resp.data.field[0].fieldname, mockup.field[0].fieldname);
                 done();
             });
     });
@@ -104,7 +139,23 @@ describe('Source CRUD routes tests', function () {
                 }
                 var resp = res.body;
                 var update = {
-                    name: 'name update'
+                    name: "sourcename",
+                    sourcetype: "DB",
+                    sourcedb: {
+                        dbtype: "sql",
+                        host: "1.1.1.1",
+                        username: "test",
+                        password: "123456",
+                    },
+                    sourcefile: {
+                        filetype: "excel",
+                        filepath: ""
+                    },
+                    query: "",
+                    field: [{
+                        fieldname: "",
+                        fieldtype: "",
+                    }]
                 }
                 request(app)
                     .put('/api/sources/' + resp.data._id)
@@ -116,7 +167,17 @@ describe('Source CRUD routes tests', function () {
                             return done(err);
                         }
                         var resp = res.body;
+                        // assert.equal(resp.data.name, update.name);
                         assert.equal(resp.data.name, update.name);
+                        assert.equal(resp.data.sourcetype, update.sourcetype);
+                        assert.equal(resp.data.sourcedb.dbtype, update.sourcedb.dbtype);
+                        assert.equal(resp.data.sourcedb.host, update.sourcedb.host);
+                        assert.equal(resp.data.sourcedb.username, update.sourcedb.username);
+                        assert.equal(resp.data.sourcedb.password, update.sourcedb.password);
+                        assert.equal(resp.data.sourcefile.filetype, update.sourcefile.filetype);
+                        assert.equal(resp.data.sourcefile.filepath, update.sourcefile.filepath);
+                        assert.equal(resp.data.query, update.query);
+                        assert.equal(resp.data.field[0].fieldname, update.field[0].fieldname);
                         done();
                     });
             });
@@ -144,15 +205,15 @@ describe('Source CRUD routes tests', function () {
 
     });
 
-    it('should be source get not use token', (done)=>{
+    it('should be source get not use token', (done) => {
         request(app)
-        .get('/api/sources')
-        .expect(403)
-        .expect({
-            status: 403,
-            message: 'User is not authorized'
-        })
-        .end(done);
+            .get('/api/sources')
+            .expect(403)
+            .expect({
+                status: 403,
+                message: 'User is not authorized'
+            })
+            .end(done);
     });
 
     it('should be source post not use token', function (done) {

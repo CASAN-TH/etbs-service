@@ -9,6 +9,48 @@ var SourceSchema = new Schema({
         type: String,
         required: 'Please fill a Source name',
     },
+    sourcetype: {
+        type: String,
+        enum: ["DB", "file"],
+    },
+    sourcedb: {
+        dbtype: {
+            type: String,
+            enum: ["sql", "oracle"],
+        },
+        host: {
+            type: String,
+        },
+        username: {
+            type: String,
+        },
+        password: {
+            type: String,
+        }
+    },
+    sourcefile: {
+        filetype: {
+            type: String,
+            enum: ["excel", "JSON"],
+        },
+        filepath: {
+            type: String,
+        }
+    },
+    query: {
+        type: String,
+    },
+    field: [{
+        fieldname: {
+            type: String,
+        },
+        fieldtype: {
+            type: String,
+        }
+    }],
+
+
+
     created: {
         type: Date,
         default: Date.now
@@ -39,18 +81,18 @@ var SourceSchema = new Schema({
         }
     }
 });
-SourceSchema.pre('save', function(next){
+SourceSchema.pre('save', function (next) {
     let Source = this;
     const model = mongoose.model("Source", SourceSchema);
     if (Source.isNew) {
         // create
         next();
-    }else{
+    } else {
         // update
         Source.updated = new Date();
         next();
     }
-    
-    
+
+
 })
 mongoose.model("Source", SourceSchema);
