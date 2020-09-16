@@ -9,6 +9,19 @@ var BankSchema = new Schema({
         type: String,
         required: 'Please fill a Bank name',
     },
+    image:String,
+    separatetype:Boolean,
+    saparatechar:String,
+    rows: [{
+        fields: [{
+            fieldname: String,
+            fieldtype: String,
+            fieldlength: Number,
+            defaultvalue: String,
+            seq: Number,
+            example: String,
+        }],
+    }],
     created: {
         type: Date,
         default: Date.now
