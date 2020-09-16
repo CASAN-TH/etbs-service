@@ -1,0 +1,20 @@
+{
+    "name": "bay",
+    "image": "http: //",
+    "separatetype": false,
+    "separatechar": " ",
+    "rows": [
+        {
+            "fields": [
+                {
+                    "fieldname": "Name",
+                    "fieldtype": "String",
+                    "fieldlength": 50,
+                    "defaultvalue": "",
+                    "seq": 1,
+                    "example": "Pleum"
+                }
+            ]
+        }
+    ]
+}
