@@ -5,9 +5,51 @@ var Schema = mongoose.Schema;
 
 
 var MapSchema = new Schema({
-    name: {
-        type: String,
-        required: 'Please fill a Map name',
+    bank: {
+        name: String,
+        image: String,
+        separatetype: Boolean,
+        separatechar: String,
+        rows: [{
+            fields: [{
+                fieldsname: String,
+                fieldstype: String,
+                fieldslength: Number,
+                fieldsvalue: String,
+                seq: Number,
+                example: String,
+                fieldsmapping: String,
+            }]
+        }]
+    },
+    source: {
+        name: String,
+        sourcetype: {
+            type: String,
+            enum: ["db","file"]
+        },
+        sourceDB: {
+            DBtype: {
+                type: String,
+                enum: ["sql","oracle"]
+            },
+            host: String,
+            user: String,
+            password: String,
+        },
+        sourcefile: {
+            filetype: {
+                type: String,
+                enum: ["excel","json"]
+            },
+            pathfile: String,
+        },
+        query: String,
+        fields: {
+            fieldsname: String,
+            fieldtype: String,
+        
+        },
     },
     created: {
         type: Date,
@@ -39,18 +81,18 @@ var MapSchema = new Schema({
         }
     }
 });
-MapSchema.pre('save', function(next){
+MapSchema.pre('save', function (next) {
     let Map = this;
     const model = mongoose.model("Map", MapSchema);
     if (Map.isNew) {
         // create
         next();
-    }else{
+    } else {
         // update
         Map.updated = new Date();
         next();
     }
-    
-    
+
+
 })
 mongoose.model("Map", MapSchema);
