@@ -17,7 +17,7 @@ describe('Source CRUD routes tests', function () {
     before(function (done) {
         mockup = {
             name: "sourcename",
-            sourcetype: "DB",
+            sourcetype: "db",
             sourcedb: {
                 dbtype: "sql",
                 host: "1.1.1.1",
@@ -140,7 +140,7 @@ describe('Source CRUD routes tests', function () {
                 var resp = res.body;
                 var update = {
                     name: "sourcename",
-                    sourcetype: "DB",
+                    sourcetype: "db",
                     sourcedb: {
                         dbtype: "sql",
                         host: "1.1.1.1",

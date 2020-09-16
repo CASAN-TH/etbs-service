@@ -11,7 +11,7 @@ var SourceSchema = new Schema({
     },
     sourcetype: {
         type: String,
-        enum: ["DB", "file"],
+        enum: ["db", "file"],
     },
     sourcedb: {
         dbtype: {
