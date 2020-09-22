@@ -21,14 +21,14 @@ describe('Map CRUD routes tests', function () {
                 mapimage: "",
                 mapseparatetype: false,
                 mapseparatechar: "",
-                rows: [{
-                    fields: {
+                maprows: [{
+                    mapfields: [{
                         mapfieldsname: "",
-                        mapfieldstype: false,
+                        mapfieldstype: "",
                         mapfieldslength: 50,
                         mapfieldsvalue: "",
                         mapseq: 1,
-                    }
+                    }]
                 }],
             },
             bank: {
@@ -44,7 +44,6 @@ describe('Map CRUD routes tests', function () {
                         fieldsvalue: "",
                         seq: 1,
                         example: "",
-                        fieldsmapping: "",
                     }],
                 }],
             },
@@ -118,6 +117,17 @@ describe('Map CRUD routes tests', function () {
                         }
                         var resp = res.body;
                         assert.equal(resp.status, 200);
+
+                        assert.equal(resp.data.map.mapname, mockup.map.mapname);
+                        assert.equal(resp.data.map.mapimage, mockup.map.mapimage);
+                        assert.equal(resp.data.map.mapseparatetype, mockup.map.mapseparatetype);
+                        assert.equal(resp.data.map.mapseparatechar, mockup.map.mapseparatechar);
+                        assert.equal(resp.data.map.maprows[0].mapfields[0].mapfieldsname, mockup.map.maprows[0].mapfields[0].mapfieldsname);
+                        assert.equal(resp.data.map.maprows[0].mapfields[0].mapfieldstype, mockup.map.maprows[0].mapfields[0].mapfieldstype);
+                        assert.equal(resp.data.map.maprows[0].mapfields[0].mapfieldslength, mockup.map.maprows[0].mapfields[0].mapfieldslength);
+                        assert.equal(resp.data.map.maprows[0].mapfields[0].mapfieldsvalue, mockup.map.maprows[0].mapfields[0].mapfieldsvalue);
+                        assert.equal(resp.data.map.maprows[0].mapfields[0].mapseq, mockup.map.maprows[0].mapfields[0].mapseq);
+
                         assert.equal(resp.data.bank.name, mockup.bank.name);
                         assert.equal(resp.data.bank.image, mockup.bank.image);
                         assert.equal(resp.data.bank.separatetype, mockup.bank.separatetype);
@@ -128,7 +138,7 @@ describe('Map CRUD routes tests', function () {
                         assert.equal(resp.data.bank.rows[0].fields[0].fieldsvalue, mockup.bank.rows[0].fields[0].fieldsvalue);
                         assert.equal(resp.data.bank.rows[0].fields[0].seq, mockup.bank.rows[0].fields[0].seq);
                         assert.equal(resp.data.bank.rows[0].fields[0].example, mockup.bank.rows[0].fields[0].example);
-                        assert.equal(resp.data.bank.rows[0].fields[0].fieldsmapping, mockup.bank.rows[0].fields[0].fieldsmapping);
+                        
 
                         assert.equal(resp.data.source.name, mockup.source.name);
                         assert.equal(resp.data.source.sourcetype, mockup.source.sourcetype);
@@ -193,6 +203,8 @@ describe('Map CRUD routes tests', function () {
                             return done(err);
                         }
                         var resp = res.body;
+
+
                         assert.equal(resp.data.bank.name, mockup.bank.name);
                         done();
                     });

@@ -10,15 +10,15 @@ var MapSchema = new Schema({
         mapimage: String,
         mapseparatetype: Boolean,
         mapseparatechar: String,
-        rows: [{
-            fields: {
+        maprows: [{
+            mapfields: [{
                 mapfieldsname: String,
                 mapfieldstype: String,
                 mapfieldslength: Number,
                 mapfieldsvalue: String,
                 mapseq: Number,
-            }
-        }],
+            }]
+        }]
     },
     bank: {
         name: String,
