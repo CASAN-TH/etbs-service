@@ -16,6 +16,21 @@ describe('Map CRUD routes tests', function () {
 
     before(function (done) {
         mockup = {
+            map: {
+                mapname: "",
+                mapimage: "",
+                mapseparatetype: false,
+                mapseparatechar: "",
+                rows: [{
+                    fields: {
+                        mapfieldsname: "",
+                        mapfieldstype: false,
+                        mapfieldslength: 50,
+                        mapfieldsvalue: "",
+                        mapseq: 1,
+                    }
+                }],
+            },
             bank: {
                 name: "กรุงศรี",
                 image: "http://",
@@ -48,24 +63,24 @@ describe('Map CRUD routes tests', function () {
                 },
                 query: "",
                 fields: {
-                            fieldsname: "name",
-                            fieldtype: "string",
+                    fieldsname: "name",
+                    fieldtype: "string",
                 }
             }
         };
-            credentials = {
-                username: 'username',
-                password: 'password',
-                firstname: 'first name',
-                lastname: 'last name',
-                email: 'test@email.com',
-                roles: ['user']
-            };
-            token = jwt.sign(_.omit(credentials, 'password'), config.jwt.secret, {
-                expiresIn: 2 * 60 * 60 * 1000
-            });
-            done();
+        credentials = {
+            username: 'username',
+            password: 'password',
+            firstname: 'first name',
+            lastname: 'last name',
+            email: 'test@email.com',
+            roles: ['user']
+        };
+        token = jwt.sign(_.omit(credentials, 'password'), config.jwt.secret, {
+            expiresIn: 2 * 60 * 60 * 1000
         });
+        done();
+    });
 
     it('should be Map get use token', (done) => {
         request(app)
