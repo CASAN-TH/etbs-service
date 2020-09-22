@@ -5,6 +5,20 @@ var Schema = mongoose.Schema;
 
 
 var MapSchema = new Schema({
+    map: {
+        mapname: String,
+        mapimage: String,
+        mapseparatetype: Boolean,
+        mapseparatechar: String,
+        rows: {
+            mapfieldsname: String,
+            mapfieldstype: String,
+            mapfieldslength: Number,
+            mapfieldsvalue: String,
+            mapseq: Number,
+
+        },
+    },
     bank: {
         name: String,
         image: String,
@@ -18,7 +32,7 @@ var MapSchema = new Schema({
                 fieldsvalue: String,
                 seq: Number,
                 example: String,
-                fieldsmapping: String,
+                pathfile: String,
             }]
         }]
     },
@@ -26,12 +40,12 @@ var MapSchema = new Schema({
         name: String,
         sourcetype: {
             type: String,
-            enum: ["db","file"]
+            enum: ["db", "file"]
         },
         sourceDB: {
             DBtype: {
                 type: String,
-                enum: ["sql","oracle"]
+                enum: ["sql", "oracle"]
             },
             host: String,
             user: String,
@@ -40,7 +54,7 @@ var MapSchema = new Schema({
         sourcefile: {
             filetype: {
                 type: String,
-                enum: ["excel","json"]
+                enum: ["excel", "json"]
             },
             pathfile: String,
         },
@@ -48,7 +62,7 @@ var MapSchema = new Schema({
         fields: {
             fieldsname: String,
             fieldtype: String,
-        
+
         },
     },
     created: {
