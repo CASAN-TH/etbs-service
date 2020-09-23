@@ -1,0 +1,185 @@
+{
+    "hospitalname": "โรงพยาบาลเปาโล",
+    "mapings": [
+        {
+            "mapname": "SSB AP-BAY",
+            "systems": [
+                {
+                    "systemname": "DataSet",
+                    "status": "true",
+                    "systemlog": "success!"
+                },
+                {
+                    "systemname": "DataSource",
+                    "status": "true",
+                    "systemlog": "success!"
+                },
+                {
+                    "systemname": "Maping",
+                    "status": "true",
+                    "systemlog": "success!"
+                },
+                {
+                    "systemname": "Encode",
+                    "status": "false",
+                    "systemlog": "unsuccess! no data"
+                },
+                {
+                    "systemname": "Upload",
+                    "status": "false",
+                    "systemlog": "unsuccess! no data"
+                }
+            ]
+        },
+        {
+            "mapname": "ORACLE AP-BAY",
+            "systems": [
+                {
+                    "systemname": "DataSet",
+                    "status": "true",
+                    "systemlog": "success!"
+                },
+                {
+                    "systemname": "DataSource",
+                    "status": "true",
+                    "systemlog": "success!"
+                },
+                {
+                    "systemname": "Maping",
+                    "status": "true",
+                    "systemlog": "success!"
+                },
+                {
+                    "systemname": "Encode",
+                    "status": "false",
+                    "systemlog": "unsuccess! no data"
+                },
+                {
+                    "systemname": "Upload",
+                    "status": "false",
+                    "systemlog": "unsuccess! no data"
+                }
+            ]
+        },
+        {
+            "mapname": "AGENCY AP-BAY",
+            "systems": [
+                {
+                    "systemname": "DataSet",
+                    "status": "true",
+                    "systemlog": "success!"
+                },
+                {
+                    "systemname": "DataSource",
+                    "status": "true",
+                    "systemlog": "success!"
+                },
+                {
+                    "systemname": "Maping",
+                    "status": "true",
+                    "systemlog": "success!"
+                },
+                {
+                    "systemname": "Encode",
+                    "status": "false",
+                    "systemlog": "unsuccess! no data"
+                },
+                {
+                    "systemname": "Upload",
+                    "status": "false",
+                    "systemlog": "unsuccess! no data"
+                }
+            ]
+        },
+        {
+            "mapname": "DF-DA SCB",
+            "systems": [
+                {
+                    "systemname": "DataSet",
+                    "status": "true",
+                    "systemlog": "success!"
+                },
+                {
+                    "systemname": "DataSource",
+                    "status": "true",
+                    "systemlog": "success!"
+                },
+                {
+                    "systemname": "Maping",
+                    "status": "true",
+                    "systemlog": "success!"
+                },
+                {
+                    "systemname": "Encode",
+                    "status": "false",
+                    "systemlog": "unsuccess! no data"
+                },
+                {
+                    "systemname": "Upload",
+                    "status": "false",
+                    "systemlog": "unsuccess! no data"
+                }
+            ]
+        },
+        {
+            "mapname": "DF-SSB SCB",
+            "systems": [
+                {
+                    "systemname": "DataSet",
+                    "status": "true",
+                    "systemlog": "success!"
+                },
+                {
+                    "systemname": "DataSource",
+                    "status": "true",
+                    "systemlog": "success!"
+                },
+                {
+                    "systemname": "Maping",
+                    "status": "true",
+                    "systemlog": "success!"
+                },
+                {
+                    "systemname": "Encode",
+                    "status": "false",
+                    "systemlog": "unsuccess! no data"
+                },
+                {
+                    "systemname": "Upload",
+                    "status": "false",
+                    "systemlog": "unsuccess! no data"
+                }
+            ]
+        },
+        {
+            "mapname": "EXCEL BAY or SCB",
+            "systems": [
+                {
+                    "systemname": "DataSet",
+                    "status": "true",
+                    "systemlog": "success!"
+                },
+                {
+                    "systemname": "DataSource",
+                    "status": "true",
+                    "systemlog": "success!"
+                },
+                {
+                    "systemname": "Maping",
+                    "status": "true",
+                    "systemlog": "success!"
+                },
+                {
+                    "systemname": "Encode",
+                    "status": "false",
+                    "systemlog": "unsuccess! no data"
+                },
+                {
+                    "systemname": "Upload",
+                    "status": "false",
+                    "systemlog": "unsuccess! no data"
+                }
+            ]
+        }
+    ]
+}
