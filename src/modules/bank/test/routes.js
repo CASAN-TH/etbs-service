@@ -19,7 +19,7 @@ describe('Bank CRUD routes tests', function () {
             name: 'bay',
             image: 'http://',
             separatetype: false,
-            separatechar: '',
+            separatechar: 'aaa',
             rows: [{
                 fields: [{
                     fieldname: 'Name',
@@ -45,18 +45,18 @@ describe('Bank CRUD routes tests', function () {
         done();
     });
 
-    it('should be Bank get use token', (done)=>{
+    it('should be Bank get use token', (done) => {
         request(app)
-        .get('/api/banks')
-        .set('Authorization', 'Bearer ' + token)
-        .expect(200)
-        .end((err, res)=>{
-            if (err) {
-                return done(err);
-            }
-            var resp = res.body;
-            done();
-        });
+            .get('/api/banks')
+            .set('Authorization', 'Bearer ' + token)
+            .expect(200)
+            .end((err, res) => {
+                if (err) {
+                    return done(err);
+                }
+                var resp = res.body;
+                done();
+            });
     });
 
     it('should be Bank get by id', function (done) {
@@ -80,7 +80,7 @@ describe('Bank CRUD routes tests', function () {
                             return done(err);
                         }
 
-                        
+
                         var resp = res.body;
                         // console.log(resp.data.rows[0].fields[0].fieldname);
                         // console.log( mockup.rows[0].fields[0].fieldname);
@@ -88,8 +88,8 @@ describe('Bank CRUD routes tests', function () {
                         assert.equal(resp.data.name, mockup.name);
                         assert.equal(resp.data.image, mockup.image);
                         assert.equal(resp.data.separatetype, mockup.separatetype);
-                        //assert.equal(resp.data.separatechar, mockup.separatechar);
-                        
+                        assert.equal(resp.data.separatechar, mockup.separatechar);
+
                         assert.equal(resp.data.rows[0].fields[0].fieldname, mockup.rows[0].fields[0].fieldname);
                         assert.equal(resp.data.rows[0].fields[0].fieldtype, mockup.rows[0].fields[0].fieldtype)
                         assert.equal(resp.data.rows[0].fields[0].fieldlength, mockup.rows[0].fields[0].fieldlength)
@@ -102,7 +102,7 @@ describe('Bank CRUD routes tests', function () {
 
     });
 
-    it('should be Bank post use token', (done)=>{
+    it('should be Bank post use token', (done) => {
         request(app)
             .post('/api/banks')
             .set('Authorization', 'Bearer ' + token)
@@ -113,7 +113,18 @@ describe('Bank CRUD routes tests', function () {
                     return done(err);
                 }
                 var resp = res.body;
+                // assert.equal(resp.data.name, mockup.name);
                 assert.equal(resp.data.name, mockup.name);
+                assert.equal(resp.data.image, mockup.image);
+                assert.equal(resp.data.separatetype, mockup.separatetype);
+                assert.equal(resp.data.separatechar, mockup.separatechar);
+
+                assert.equal(resp.data.rows[0].fields[0].fieldname, mockup.rows[0].fields[0].fieldname);
+                assert.equal(resp.data.rows[0].fields[0].fieldtype, mockup.rows[0].fields[0].fieldtype)
+                assert.equal(resp.data.rows[0].fields[0].fieldlength, mockup.rows[0].fields[0].fieldlength)
+                assert.equal(resp.data.rows[0].fields[0].defaultvalue, mockup.rows[0].fields[0].defaultvalue)
+                assert.equal(resp.data.rows[0].fields[0].seq, mockup.rows[0].fields[0].seq)
+                assert.equal(resp.data.rows[0].fields[0].example, mockup.rows[0].fields[0].example)
                 done();
             });
     });
@@ -131,7 +142,20 @@ describe('Bank CRUD routes tests', function () {
                 }
                 var resp = res.body;
                 var update = {
-                    name: 'name update'
+                    name: 'bay',
+                    image: 'http://',
+                    separatetype: false,
+                    separatechar: 'aaa',
+                    rows: [{
+                        fields: [{
+                            fieldname: 'Name',
+                            fieldtype: 'String',
+                            fieldlength: 50,
+                            defaultvalue: '',
+                            seq: 1,
+                            example: 'Pleum',
+                        }],
+                    }],
                 }
                 request(app)
                     .put('/api/banks/' + resp.data._id)
@@ -143,7 +167,18 @@ describe('Bank CRUD routes tests', function () {
                             return done(err);
                         }
                         var resp = res.body;
+                        // assert.equal(resp.data.name, update.name);
                         assert.equal(resp.data.name, update.name);
+                        assert.equal(resp.data.image, update.image);
+                        assert.equal(resp.data.separatetype, update.separatetype);
+                        assert.equal(resp.data.separatechar, update.separatechar);
+
+                        assert.equal(resp.data.rows[0].fields[0].fieldname, update.rows[0].fields[0].fieldname);
+                        assert.equal(resp.data.rows[0].fields[0].fieldtype, update.rows[0].fields[0].fieldtype)
+                        assert.equal(resp.data.rows[0].fields[0].fieldlength, update.rows[0].fields[0].fieldlength)
+                        assert.equal(resp.data.rows[0].fields[0].defaultvalue, update.rows[0].fields[0].defaultvalue)
+                        assert.equal(resp.data.rows[0].fields[0].seq, update.rows[0].fields[0].seq)
+                        assert.equal(resp.data.rows[0].fields[0].example, update.rows[0].fields[0].example)
                         done();
                     });
             });
@@ -171,15 +206,15 @@ describe('Bank CRUD routes tests', function () {
 
     });
 
-    it('should be bank get not use token', (done)=>{
+    it('should be bank get not use token', (done) => {
         request(app)
-        .get('/api/banks')
-        .expect(403)
-        .expect({
-            status: 403,
-            message: 'User is not authorized'
-        })
-        .end(done);
+            .get('/api/banks')
+            .expect(403)
+            .expect({
+                status: 403,
+                message: 'User is not authorized'
+            })
+            .end(done);
     });
 
     it('should be bank post not use token', function (done) {

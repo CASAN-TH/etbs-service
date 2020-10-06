@@ -9,9 +9,18 @@ var BankSchema = new Schema({
         type: String,
         required: 'Please fill a Bank name',
     },
-    image:String,
-    separatetype:Boolean,
-    saparatechar:String,
+    image: {
+        type: String,
+        // required: 'Please fill a Bank image',
+    },
+    separatetype: {
+        type: Boolean,
+        required: 'Please fill a Bank separatetype',
+    },
+    separatechar: {
+        type: String,
+        required: 'Please fill a Bank separatechar',
+    },
     rows: [{
         fields: [{
             fieldname: String,
@@ -52,18 +61,18 @@ var BankSchema = new Schema({
         }
     }
 });
-BankSchema.pre('save', function(next){
+BankSchema.pre('save', function (next) {
     let Bank = this;
     const model = mongoose.model("Bank", BankSchema);
     if (Bank.isNew) {
         // create
         next();
-    }else{
+    } else {
         // update
         Bank.updated = new Date();
         next();
     }
-    
-    
+
+
 })
 mongoose.model("Bank", BankSchema);
