@@ -21,51 +21,8 @@ describe('Map CRUD routes tests', function () {
                 mapimage: "",
                 mapseparatetype: false,
                 mapseparatechar: "",
-                maprows: [{
-                    mapfields: [{
-                        mapfieldsname: "",
-                        mapfieldstype: "",
-                        mapfieldslength: 50,
-                        mapfieldsvalue: "",
-                        mapseq: 1,
-                    }]
-                }],
+                mapfields:"",
             },
-            bank: {
-                name: "กรุงศรี",
-                image: "http://",
-                separatetype: false,
-                separatechar: "",
-                rows: [{
-                    fields: [{
-                        fieldsname: "",
-                        fieldstype: "",
-                        fieldslength: 50,
-                        fieldsvalue: "",
-                        seq: 1,
-                        example: "",
-                    }],
-                }],
-            },
-            source: {
-                name: 'sourcename',
-                sourcetype: "db",
-                sourceDB: {
-                    DBtype: "sql",
-                    host: "1.1.1.1",
-                    user: "admin",
-                    password: "password"
-                },
-                sourcefile: {
-                    DBtype: "excel",
-                    pathfile: "c",
-                },
-                query: "",
-                fields: {
-                    fieldsname: "name",
-                    fieldtype: "string",
-                }
-            }
         };
         credentials = {
             username: 'username',
@@ -122,39 +79,7 @@ describe('Map CRUD routes tests', function () {
                         assert.equal(resp.data.map.mapimage, mockup.map.mapimage);
                         assert.equal(resp.data.map.mapseparatetype, mockup.map.mapseparatetype);
                         assert.equal(resp.data.map.mapseparatechar, mockup.map.mapseparatechar);
-                        assert.equal(resp.data.map.maprows[0].mapfields[0].mapfieldsname, mockup.map.maprows[0].mapfields[0].mapfieldsname);
-                        assert.equal(resp.data.map.maprows[0].mapfields[0].mapfieldstype, mockup.map.maprows[0].mapfields[0].mapfieldstype);
-                        assert.equal(resp.data.map.maprows[0].mapfields[0].mapfieldslength, mockup.map.maprows[0].mapfields[0].mapfieldslength);
-                        assert.equal(resp.data.map.maprows[0].mapfields[0].mapfieldsvalue, mockup.map.maprows[0].mapfields[0].mapfieldsvalue);
-                        assert.equal(resp.data.map.maprows[0].mapfields[0].mapseq, mockup.map.maprows[0].mapfields[0].mapseq);
-
-                        assert.equal(resp.data.bank.name, mockup.bank.name);
-                        assert.equal(resp.data.bank.image, mockup.bank.image);
-                        assert.equal(resp.data.bank.separatetype, mockup.bank.separatetype);
-                        assert.equal(resp.data.bank.separatechar, mockup.bank.separatechar);
-                        assert.equal(resp.data.bank.rows[0].fields[0].fieldsname, mockup.bank.rows[0].fields[0].fieldsname);
-                        assert.equal(resp.data.bank.rows[0].fields[0].fieldstype, mockup.bank.rows[0].fields[0].fieldstype);
-                        assert.equal(resp.data.bank.rows[0].fields[0].fieldslength, mockup.bank.rows[0].fields[0].fieldslength);
-                        assert.equal(resp.data.bank.rows[0].fields[0].fieldsvalue, mockup.bank.rows[0].fields[0].fieldsvalue);
-                        assert.equal(resp.data.bank.rows[0].fields[0].seq, mockup.bank.rows[0].fields[0].seq);
-                        assert.equal(resp.data.bank.rows[0].fields[0].example, mockup.bank.rows[0].fields[0].example);
-                        
-
-                        assert.equal(resp.data.source.name, mockup.source.name);
-                        assert.equal(resp.data.source.sourcetype, mockup.source.sourcetype);
-                        assert.equal(resp.data.source.sourceDB.DBtype, mockup.source.sourceDB.DBtype);
-                        assert.equal(resp.data.source.sourceDB.host, mockup.source.sourceDB.host);
-                        assert.equal(resp.data.source.sourceDB.user, mockup.source.sourceDB.user);
-                        assert.equal(resp.data.source.sourceDB.password, mockup.source.sourceDB.password);
-
-                        assert.equal(resp.data.source.sourceDB.sourcefile, mockup.source.sourceDB.sourcefile);
-                        assert.equal(resp.data.source.sourceDB.DBtype, mockup.source.sourceDB.DBtype);
-                        assert.equal(resp.data.source.sourceDB.pathfile, mockup.source.sourceDB.pathfile);
-
-                        assert.equal(resp.data.source.sourceDB.pathfile, mockup.source.sourceDB.pathfile);
-                        assert.equal(resp.data.source.sourceDB.pathfile, mockup.source.sourceDB.pathfile);
-                        assert.equal(resp.data.source.sourceDB.fieldsname, mockup.source.sourceDB.fieldsname);
-                        assert.equal(resp.data.source.sourceDB.fieldtype, mockup.source.sourceDB.fieldtype);
+                        assert.equal(resp.data.map.mapfields, mockup.map.mapfields);
 
                         done();
                     });
@@ -205,7 +130,7 @@ describe('Map CRUD routes tests', function () {
                         var resp = res.body;
 
 
-                        assert.equal(resp.data.bank.name, mockup.bank.name);
+                        assert.equal(resp.data.map.name, mockup.map.name);
                         done();
                     });
             });
