@@ -30,6 +30,9 @@ describe('Bank CRUD routes tests', function () {
                     example: 'Pleum',
                 }],
             }],
+            encryptcmd: 'encryptCmd',
+            uploadcmd: 'uploadCmd',
+            maxamount: 200
         };
         credentials = {
             username: 'username',
@@ -82,8 +85,6 @@ describe('Bank CRUD routes tests', function () {
 
 
                         var resp = res.body;
-                        // console.log(resp.data.rows[0].fields[0].fieldname);
-                        // console.log( mockup.rows[0].fields[0].fieldname);
                         assert.equal(resp.status, 200);
                         assert.equal(resp.data.name, mockup.name);
                         assert.equal(resp.data.image, mockup.image);
@@ -91,11 +92,15 @@ describe('Bank CRUD routes tests', function () {
                         assert.equal(resp.data.separatechar, mockup.separatechar);
 
                         assert.equal(resp.data.rows[0].fields[0].fieldname, mockup.rows[0].fields[0].fieldname);
-                        assert.equal(resp.data.rows[0].fields[0].fieldtype, mockup.rows[0].fields[0].fieldtype)
-                        assert.equal(resp.data.rows[0].fields[0].fieldlength, mockup.rows[0].fields[0].fieldlength)
-                        assert.equal(resp.data.rows[0].fields[0].defaultvalue, mockup.rows[0].fields[0].defaultvalue)
-                        assert.equal(resp.data.rows[0].fields[0].seq, mockup.rows[0].fields[0].seq)
-                        assert.equal(resp.data.rows[0].fields[0].example, mockup.rows[0].fields[0].example)
+                        assert.equal(resp.data.rows[0].fields[0].fieldtype, mockup.rows[0].fields[0].fieldtype);
+                        assert.equal(resp.data.rows[0].fields[0].fieldlength, mockup.rows[0].fields[0].fieldlength);
+                        assert.equal(resp.data.rows[0].fields[0].defaultvalue, mockup.rows[0].fields[0].defaultvalue);
+                        assert.equal(resp.data.rows[0].fields[0].seq, mockup.rows[0].fields[0].seq);
+                        assert.equal(resp.data.rows[0].fields[0].example, mockup.rows[0].fields[0].example);
+
+                        assert.equal(resp.data.encryptcmd, mockup.encryptcmd);
+                        assert.equal(resp.data.uploadcmd, mockup.uploadcmd);
+                        assert.equal(resp.data.maxamount, mockup.maxamount);
                         done();
                     });
             });
@@ -113,18 +118,21 @@ describe('Bank CRUD routes tests', function () {
                     return done(err);
                 }
                 var resp = res.body;
-                // assert.equal(resp.data.name, mockup.name);
                 assert.equal(resp.data.name, mockup.name);
                 assert.equal(resp.data.image, mockup.image);
                 assert.equal(resp.data.separatetype, mockup.separatetype);
                 assert.equal(resp.data.separatechar, mockup.separatechar);
 
                 assert.equal(resp.data.rows[0].fields[0].fieldname, mockup.rows[0].fields[0].fieldname);
-                assert.equal(resp.data.rows[0].fields[0].fieldtype, mockup.rows[0].fields[0].fieldtype)
-                assert.equal(resp.data.rows[0].fields[0].fieldlength, mockup.rows[0].fields[0].fieldlength)
-                assert.equal(resp.data.rows[0].fields[0].defaultvalue, mockup.rows[0].fields[0].defaultvalue)
-                assert.equal(resp.data.rows[0].fields[0].seq, mockup.rows[0].fields[0].seq)
-                assert.equal(resp.data.rows[0].fields[0].example, mockup.rows[0].fields[0].example)
+                assert.equal(resp.data.rows[0].fields[0].fieldtype, mockup.rows[0].fields[0].fieldtype);
+                assert.equal(resp.data.rows[0].fields[0].fieldlength, mockup.rows[0].fields[0].fieldlength);
+                assert.equal(resp.data.rows[0].fields[0].defaultvalue, mockup.rows[0].fields[0].defaultvalue);
+                assert.equal(resp.data.rows[0].fields[0].seq, mockup.rows[0].fields[0].seq);
+                assert.equal(resp.data.rows[0].fields[0].example, mockup.rows[0].fields[0].example);
+
+                assert.equal(resp.data.encryptcmd, mockup.encryptcmd);
+                assert.equal(resp.data.uploadcmd, mockup.uploadcmd);
+                assert.equal(resp.data.maxamount, mockup.maxamount);
                 done();
             });
     });
@@ -156,6 +164,9 @@ describe('Bank CRUD routes tests', function () {
                             example: 'Pleum',
                         }],
                     }],
+                    encryptcmd: 'encryptCmd',
+                    uploadcmd: 'uploadCmd',
+                    maxamount: 200
                 }
                 request(app)
                     .put('/api/banks/' + resp.data._id)
@@ -174,11 +185,15 @@ describe('Bank CRUD routes tests', function () {
                         assert.equal(resp.data.separatechar, update.separatechar);
 
                         assert.equal(resp.data.rows[0].fields[0].fieldname, update.rows[0].fields[0].fieldname);
-                        assert.equal(resp.data.rows[0].fields[0].fieldtype, update.rows[0].fields[0].fieldtype)
-                        assert.equal(resp.data.rows[0].fields[0].fieldlength, update.rows[0].fields[0].fieldlength)
-                        assert.equal(resp.data.rows[0].fields[0].defaultvalue, update.rows[0].fields[0].defaultvalue)
-                        assert.equal(resp.data.rows[0].fields[0].seq, update.rows[0].fields[0].seq)
-                        assert.equal(resp.data.rows[0].fields[0].example, update.rows[0].fields[0].example)
+                        assert.equal(resp.data.rows[0].fields[0].fieldtype, update.rows[0].fields[0].fieldtype);
+                        assert.equal(resp.data.rows[0].fields[0].fieldlength, update.rows[0].fields[0].fieldlength);
+                        assert.equal(resp.data.rows[0].fields[0].defaultvalue, update.rows[0].fields[0].defaultvalue);
+                        assert.equal(resp.data.rows[0].fields[0].seq, update.rows[0].fields[0].seq);
+                        assert.equal(resp.data.rows[0].fields[0].example, update.rows[0].fields[0].example);
+
+                        assert.equal(resp.data.encryptcmd, mockup.encryptcmd);
+                        assert.equal(resp.data.uploadcmd, mockup.uploadcmd);
+                        assert.equal(resp.data.maxamount, mockup.maxamount);
                         done();
                     });
             });

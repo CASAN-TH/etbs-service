@@ -31,6 +31,20 @@ var BankSchema = new Schema({
             example: String,
         }],
     }],
+    encryptcmd: {
+        type: String,
+        required: 'Please fill a Bank encryptcmd',
+    },
+    uploadcmd: {
+        type: String,
+        required: 'Please fill a Bank uploadcmd',
+    },
+    maxamount: {
+        type: Number,
+        required: 'Please fill a Bank maxamount',
+    },
+
+
     created: {
         type: Date,
         default: Date.now

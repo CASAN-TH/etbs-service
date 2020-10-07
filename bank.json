@@ -16,5 +16,8 @@
                 }
             ]
         }
-    ]
+    ],
+    "encryptcmd": "encryptCmd",
+    "uploadcmd": "uploadCmd",
+    "maxamount": 200
 }
