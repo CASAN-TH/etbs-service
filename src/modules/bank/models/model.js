@@ -11,7 +11,7 @@ var BankSchema = new Schema({
     },
     image: {
         type: String,
-        required: 'Please fill a Bank image',
+        // required: 'Please fill a Bank image',
     },
     separatetype: {
         type: Boolean,
