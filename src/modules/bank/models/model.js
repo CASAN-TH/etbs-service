@@ -11,7 +11,7 @@ var BankSchema = new Schema({
     },
     image: {
         type: String,
-        // required: 'Please fill a Bank image',
+        required: 'Please fill a Bank image',
     },
     separatetype: {
         type: Boolean,
@@ -19,7 +19,7 @@ var BankSchema = new Schema({
     },
     separatechar: {
         type: String,
-        required: 'Please fill a Bank separatechar',
+        // required: 'Please fill a Bank separatechar',
     },
     rows: [{
         fields: [{
@@ -33,15 +33,15 @@ var BankSchema = new Schema({
     }],
     encryptcmd: {
         type: String,
-        required: 'Please fill a Bank encryptcmd',
+        // required: 'Please fill a Bank encryptcmd',
     },
     uploadcmd: {
         type: String,
-        required: 'Please fill a Bank uploadcmd',
+        // required: 'Please fill a Bank uploadcmd',
     },
     maxamount: {
         type: Number,
-        required: 'Please fill a Bank maxamount',
+        // required: 'Please fill a Bank maxamount',
     },
 
 
