@@ -40,14 +40,30 @@ var SourceSchema = new Schema({
     query: {
         type: String,
     },
-    field: [{
-        fieldname: {
-            type: String,
-        },
-        fieldtype: {
-            type: String,
-        }
-    }],
+    fields: {
+        type: [
+            {
+                fieldname: {
+                    type: String,
+                },
+                fieldtype: {
+                    type: String,
+                },
+                fieldlength: {
+                    type: Number,
+                },
+                defaultvalue: {
+                    type: String,
+                },
+                seq: {
+                    type: Number,
+                },
+                example: {
+                    type: String,
+                },
+            }
+        ]
+    },
 
 
 

@@ -8,14 +8,18 @@
         "password": "123456"
     },
     "query": "select name,accno from sourcetable",
-    "field": [
+    "sourcefile": {
+        "filetype": "excel",
+        "filepath": ""
+    },
+    "fields": [
         {
-            "fieldname": "name",
-            "fieldtype": "string"
-        },
-        {
-            "fieldname": "accno",
-            "fieldtype": "string"
+            "fieldname": "Name",
+            "fieldtype": "String",
+            "fieldlength": 50,
+            "defaultvalue": "",
+            "seq": 1,
+            "example": "Pleum"
         }
     ]
 }
