@@ -1,0 +1,64 @@
+[
+    {
+        "name": "SSB AP-Bay",
+        "image": "Logo",
+        "dataset": {
+            "name": "bay",
+            "image": "http: //",
+            "separatetype": false,
+            "separatechar": " ",
+            "rows": [
+                {
+                    "fields": [
+                        {
+                            "fieldname": "accountname",
+                            "fieldtype": "String",
+                            "fieldlength": 50,
+                            "defaultvalue": "",
+                            "seq": 1,
+                            "example": "Pleum",
+                            "mapfield": "accountname"
+                        },
+                        {
+                            "fieldname": "accountid",
+                            "fieldtype": "String",
+                            "fieldlength": 20,
+                            "defaultvalue": "",
+                            "seq": 1,
+                            "example": "Pleum",
+                            "mapfield": "accountid"
+                        }
+                    ]
+                }
+            ],
+            "encryptcmd": "encryptCmd",
+            "uploadcmd": "uploadCmd",
+            "maxamount": 200
+        },
+        "datasource":{
+            "name": "SSB",
+            "sourcetype": "db",
+            "sourcedb": {
+                "dbtype": "sql",
+                "host": "1.1.1.1",
+                "username": "test",
+                "password": "123456"
+            },
+            "query": "select name,accno from sourcetable",
+            "sourcefile": {
+                "filetype": "excel",
+                "filepath": ""
+            },
+            "fields": [
+                {
+                    "fieldname": "Name",
+                    "fieldtype": "String",
+                    "fieldlength": 50,
+                    "defaultvalue": "",
+                    "seq": 1,
+                    "example": "Pleum"
+                }
+            ]
+        }
+    }
+]
