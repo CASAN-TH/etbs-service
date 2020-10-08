@@ -10,62 +10,12 @@ var MapSchema = new Schema({
         mapimage: String,
         mapseparatetype: Boolean,
         mapseparatechar: String,
-        maprows: [{
-            mapfields: [{
-                mapfieldsname: String,
-                mapfieldstype: String,
-                mapfieldslength: Number,
-                mapfieldsvalue: String,
-                mapseq: Number,
-            }]
-        }]
+        mapfields: String,
     },
-    bank: {
-        name: String,
-        image: String,
-        separatetype: Boolean,
-        separatechar: String,
-        rows: [{
-            fields: [{
-                fieldsname: String,
-                fieldstype: String,
-                fieldslength: Number,
-                fieldsvalue: String,
-                seq: Number,
-                example: String,
-                pathfile: String,
-            }]
-        }]
-    },
-    source: {
-        name: String,
-        sourcetype: {
-            type: String,
-            enum: ["db", "file"]
-        },
-        sourceDB: {
-            DBtype: {
-                type: String,
-                enum: ["sql", "oracle"]
-            },
-            host: String,
-            user: String,
-            password: String,
-        },
-        sourcefile: {
-            filetype: {
-                type: String,
-                enum: ["excel", "json"]
-            },
-            pathfile: String,
-        },
-        query: String,
-        fields: {
-            fieldsname: String,
-            fieldtype: String,
 
-        },
-    },
+
+
+
     created: {
         type: Date,
         default: Date.now
