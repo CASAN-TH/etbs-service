@@ -16,7 +16,7 @@ var SourceSchema = new Schema({
     sourcedb: {
         dbtype: {
             type: String,
-            enum: ["sql", "oracle"],
+            // enum: ["sql", "oracle"],
         },
         host: {
             type: String,
@@ -31,7 +31,7 @@ var SourceSchema = new Schema({
     sourcefile: {
         filetype: {
             type: String,
-            enum: ["excel", "JSON"],
+            // enum: ["excel", "JSON"],
         },
         filepath: {
             type: String,

@@ -5,40 +5,10 @@ var Schema = mongoose.Schema;
 
 
 var AccountSchema = new Schema({
-    mapname: {
+    name: {
         type: String,
         required: 'Please fill a Account name',
     },
-    image: {
-        type: String,
-        required: 'Please fill a Image'
-    },
-    fields: [
-        // {
-        //     name: {
-        //         type: String,
-        //         required: 'Please fill a Image'
-        //     },
-        //     identification: {
-        //         type: String,
-        //         required: 'Please fill a Image'
-        //     },
-        //     amount: {
-        //         type: Number,
-        //         required: 'Please fill a amount'
-        //     },
-        //     datetime: {
-        //         date: {
-        //             type: String,
-        //             required: 'Please fill a date'
-        //         },
-        //         time: {
-        //             type: String,
-        //             required: 'Please fill a time'
-        //         }
-        //     }
-        // }
-    ],
     created: {
         type: Date,
         default: Date.now
@@ -69,18 +39,18 @@ var AccountSchema = new Schema({
         }
     }
 });
-AccountSchema.pre('save', function (next) {
+AccountSchema.pre('save', function(next){
     let Account = this;
     const model = mongoose.model("Account", AccountSchema);
     if (Account.isNew) {
         // create
         next();
-    } else {
+    }else{
         // update
         Account.updated = new Date();
         next();
     }
-
-
+    
+    
 })
 mongoose.model("Account", AccountSchema);
