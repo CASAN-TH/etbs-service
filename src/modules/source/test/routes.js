@@ -29,10 +29,16 @@ describe('Source CRUD routes tests', function () {
                 filepath: ""
             },
             query: "",
-            field: [{
-                fieldname: "",
-                fieldtype: "",
-            }]
+            fields: [
+                {
+                    fieldname: "Name",
+                    fieldtype: "String",
+                    fieldlength: 50,
+                    defaultvalue: "",
+                    seq: 1,
+                    example: "Pleum"
+                }
+            ]
         };
         credentials = {
             username: 'username',
@@ -92,8 +98,15 @@ describe('Source CRUD routes tests', function () {
                         assert.equal(resp.data.sourcedb.password, mockup.sourcedb.password);
                         assert.equal(resp.data.sourcefile.filetype, mockup.sourcefile.filetype);
                         assert.equal(resp.data.sourcefile.filepath, mockup.sourcefile.filepath);
+
                         assert.equal(resp.data.query, mockup.query);
-                        assert.equal(resp.data.field[0].fieldname, mockup.field[0].fieldname);
+
+                        assert.equal(resp.data.fields[0].fieldname, mockup.fields[0].fieldname);
+                        assert.equal(resp.data.fields[0].fieldtype, mockup.fields[0].fieldtype);
+                        assert.equal(resp.data.fields[0].fieldlength, mockup.fields[0].fieldlength);
+                        assert.equal(resp.data.fields[0].defaultvalue, mockup.fields[0].defaultvalue);
+                        assert.equal(resp.data.fields[0].seq, mockup.fields[0].seq);
+                        assert.equal(resp.data.fields[0].example, mockup.fields[0].example);
                         done();
                     });
             });
@@ -120,8 +133,15 @@ describe('Source CRUD routes tests', function () {
                 assert.equal(resp.data.sourcedb.password, mockup.sourcedb.password);
                 assert.equal(resp.data.sourcefile.filetype, mockup.sourcefile.filetype);
                 assert.equal(resp.data.sourcefile.filepath, mockup.sourcefile.filepath);
+
                 assert.equal(resp.data.query, mockup.query);
-                assert.equal(resp.data.field[0].fieldname, mockup.field[0].fieldname);
+
+                assert.equal(resp.data.fields[0].fieldname, mockup.fields[0].fieldname);
+                assert.equal(resp.data.fields[0].fieldtype, mockup.fields[0].fieldtype);
+                assert.equal(resp.data.fields[0].fieldlength, mockup.fields[0].fieldlength);
+                assert.equal(resp.data.fields[0].defaultvalue, mockup.fields[0].defaultvalue);
+                assert.equal(resp.data.fields[0].seq, mockup.fields[0].seq);
+                assert.equal(resp.data.fields[0].example, mockup.fields[0].example);
                 done();
             });
     });
@@ -152,10 +172,16 @@ describe('Source CRUD routes tests', function () {
                         filepath: ""
                     },
                     query: "",
-                    field: [{
-                        fieldname: "",
-                        fieldtype: "",
-                    }]
+                    fields: [
+                        {
+                            fieldname: "Name",
+                            fieldtype: "String",
+                            fieldlength: 50,
+                            defaultvalue: "",
+                            seq: 1,
+                            example: "Pleum"
+                        }
+                    ]
                 }
                 request(app)
                     .put('/api/sources/' + resp.data._id)
@@ -176,8 +202,15 @@ describe('Source CRUD routes tests', function () {
                         assert.equal(resp.data.sourcedb.password, update.sourcedb.password);
                         assert.equal(resp.data.sourcefile.filetype, update.sourcefile.filetype);
                         assert.equal(resp.data.sourcefile.filepath, update.sourcefile.filepath);
+
                         assert.equal(resp.data.query, update.query);
-                        assert.equal(resp.data.field[0].fieldname, update.field[0].fieldname);
+
+                        assert.equal(resp.data.fields[0].fieldname, update.fields[0].fieldname);
+                        assert.equal(resp.data.fields[0].fieldtype, update.fields[0].fieldtype);
+                        assert.equal(resp.data.fields[0].fieldlength, update.fields[0].fieldlength);
+                        assert.equal(resp.data.fields[0].defaultvalue, update.fields[0].defaultvalue);
+                        assert.equal(resp.data.fields[0].seq, update.fields[0].seq);
+                        assert.equal(resp.data.fields[0].example, update.fields[0].example);
                         done();
                     });
             });

@@ -21,16 +21,36 @@ var BankSchema = new Schema({
         type: String,
         // required: 'Please fill a Bank separatechar',
     },
-    rows: [{
-        fields: [{
-            fieldname: String,
-            fieldtype: String,
-            fieldlength: Number,
-            defaultvalue: String,
-            seq: Number,
-            example: String,
-        }],
-    }],
+    rows: {
+        type: [
+            {
+                fields: {
+                    type: [
+                        {
+                            fieldname: {
+                                type: String,
+                            },
+                            fieldtype: {
+                                type: String,
+                            },
+                            fieldlength: {
+                                type: Number,
+                            },
+                            defaultvalue: {
+                                type: String,
+                            },
+                            seq: {
+                                type: Number,
+                            },
+                            example: {
+                                type: String,
+                            },
+                        }
+                    ]
+                },
+            }
+        ]
+    },
     encryptcmd: {
         type: String,
         // required: 'Please fill a Bank encryptcmd',
