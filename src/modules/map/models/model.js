@@ -1,17 +1,75 @@
 'use strict';
+const { isBoolean } = require('lodash');
 // use model
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 
 var MapSchema = new Schema({
-    map: {
-        mapname: String,
-        mapimage: String,
-        mapseparatetype: Boolean,
-        mapseparatechar: String,
-        mapfields: String,
-    },
+        name: String,
+        image: String,
+        dataset: {
+            name: String,
+            image: String,
+            separatetype: Boolean,
+            separatechar: String,
+            rows: [
+                {
+                    fields: [
+                        {
+                            fieldname: String,
+                            fieldtype: String,
+                            fieldlength: Number,
+                            defaultvalue: String,
+                            seq: String,
+                            example: String,
+                            mapfield: String
+                        },
+                        {
+                            fieldname: String,
+                            fieldtype: String,
+                            fieldlength: Number,
+                            defaultvalue: String,
+                            seq: String,
+                            example: String,
+                            mapfield: String
+                        }
+                    ]
+                }
+            ],
+            encryptcmd: String,
+            uploadcmd: String,
+            maxamount: Number
+        },
+        datasource:{
+            name: String,
+            sourcetype: String,
+            sourcedb: {
+                dbtype: String,
+                host: String,
+                username: String,
+                password: String
+            },
+            query: String,
+            sourcefile: {
+                filetype: String,
+                filepath: String
+            },
+            fields: [
+                {
+                    fieldname: String,
+                    fieldtype: String,
+                    fieldlength: Number,
+                    defaultvalue: String,
+                    seq: String,
+                    example: String
+                }
+            ]
+        },
+
+
+
+
     created: {
         type: Date,
         default: Date.now
