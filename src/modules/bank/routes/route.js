@@ -16,6 +16,8 @@ module.exports = function (app) {
 
     app.param('bankId', controller.getByID);
 
+    app.route('/api/banks/example/txtfile').all(policy.isAllowed)
+        .post(controller.exampleTxtfile);
     /**
      * Message Queue
      * exchange : ชื่อเครือข่ายไปรษณีย์  เช่น casan

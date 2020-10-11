@@ -298,6 +298,23 @@ describe('Bank CRUD routes tests', function () {
 
     });
 
+    it('should be exampleTxtfile post use token', (done) => {
+        request(app)
+            .post('/api/banks/example/txtfile')
+            .set('Authorization', 'Bearer ' + token)
+            .send(mockup)
+            .expect(200)
+            .end(function (err, res) {
+                if (err) {
+                    return done(err);
+                }
+                var resp = res.body;
+                assert.equal(resp.status, 200);
+                assert.equal(resp.data, 'Successfully Written to File.');
+                done();
+            });
+    });
+    
     afterEach(function (done) {
         Bank.deleteMany().exec(done);
     });

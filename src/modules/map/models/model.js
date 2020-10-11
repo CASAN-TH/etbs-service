@@ -12,10 +12,6 @@ var MapSchema = new Schema({
         mapseparatechar: String,
         mapfields: String,
     },
-
-
-
-
     created: {
         type: Date,
         default: Date.now
