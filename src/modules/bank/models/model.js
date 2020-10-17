@@ -24,6 +24,15 @@ var BankSchema = new Schema({
     rows: {
         type: [
             {
+                rowname: {
+                    type: String,
+                },
+                rowtype: {
+                    type: String,
+                },
+                required: {
+                    type: Boolean,
+                },
                 fields: {
                     type: [
                         {

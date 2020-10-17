@@ -21,6 +21,9 @@ describe('Bank CRUD routes tests', function () {
             separatetype: false,
             separatechar: 'aaa',
             rows: [{
+                rowname: "001",
+                rowtype: "header",
+                required: true,
                 fields: [{
                     fieldname: 'Name',
                     fieldtype: 'String',
@@ -91,6 +94,10 @@ describe('Bank CRUD routes tests', function () {
                         assert.equal(resp.data.separatetype, mockup.separatetype);
                         assert.equal(resp.data.separatechar, mockup.separatechar);
 
+                        assert.equal(resp.data.rows[0].rowname, mockup.rows[0].rowname);
+                        assert.equal(resp.data.rows[0].rowtype, mockup.rows[0].rowtype);
+                        assert.equal(resp.data.rows[0].required, mockup.rows[0].required);
+
                         assert.equal(resp.data.rows[0].fields[0].fieldname, mockup.rows[0].fields[0].fieldname);
                         assert.equal(resp.data.rows[0].fields[0].fieldtype, mockup.rows[0].fields[0].fieldtype);
                         assert.equal(resp.data.rows[0].fields[0].fieldlength, mockup.rows[0].fields[0].fieldlength);
@@ -122,6 +129,10 @@ describe('Bank CRUD routes tests', function () {
                 assert.equal(resp.data.image, mockup.image);
                 assert.equal(resp.data.separatetype, mockup.separatetype);
                 assert.equal(resp.data.separatechar, mockup.separatechar);
+
+                assert.equal(resp.data.rows[0].rowname, mockup.rows[0].rowname);
+                assert.equal(resp.data.rows[0].rowtype, mockup.rows[0].rowtype);
+                assert.equal(resp.data.rows[0].required, mockup.rows[0].required);
 
                 assert.equal(resp.data.rows[0].fields[0].fieldname, mockup.rows[0].fields[0].fieldname);
                 assert.equal(resp.data.rows[0].fields[0].fieldtype, mockup.rows[0].fields[0].fieldtype);
@@ -155,6 +166,9 @@ describe('Bank CRUD routes tests', function () {
                     separatetype: false,
                     separatechar: 'aaa',
                     rows: [{
+                        rowname: "001",
+                        rowtype: "header",
+                        required: true,
                         fields: [{
                             fieldname: 'Name',
                             fieldtype: 'String',
@@ -183,6 +197,10 @@ describe('Bank CRUD routes tests', function () {
                         assert.equal(resp.data.image, update.image);
                         assert.equal(resp.data.separatetype, update.separatetype);
                         assert.equal(resp.data.separatechar, update.separatechar);
+
+                        assert.equal(resp.data.rows[0].rowname, update.rows[0].rowname);
+                        assert.equal(resp.data.rows[0].rowtype, update.rows[0].rowtype);
+                        assert.equal(resp.data.rows[0].required, update.rows[0].required);
 
                         assert.equal(resp.data.rows[0].fields[0].fieldname, update.rows[0].fields[0].fieldname);
                         assert.equal(resp.data.rows[0].fields[0].fieldtype, update.rows[0].fields[0].fieldtype);
@@ -314,7 +332,7 @@ describe('Bank CRUD routes tests', function () {
                 done();
             });
     });
-    
+
     afterEach(function (done) {
         Bank.deleteMany().exec(done);
     });

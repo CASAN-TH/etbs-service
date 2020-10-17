@@ -120,11 +120,11 @@ exports.delete = function (req, res) {
 };
 
 exports.exampleTxtfile = function (req, res) {
-    console.log(req.body);
+    // console.log(req.body);
     var data = "New File Contents";
     fs.writeFile("temp.txt", data, (err) => {
         if (err) console.log(err);
-        console.log("Successfully Written to File.");
+        // console.log("Successfully Written to File.");
         res.jsonp({
             status: 200,
             data: "Successfully Written to File."
