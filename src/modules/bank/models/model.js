@@ -63,6 +63,15 @@ var BankSchema = new Schema({
             }
         ]
     },
+    encrypt: {
+        type: Boolean
+    },
+    upload: {
+        type: Boolean
+    },
+    limitamount: {
+        type: Boolean
+    },
     encryptcmd: {
         type: String,
         // required: 'Please fill a Bank encryptcmd',

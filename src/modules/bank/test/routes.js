@@ -34,6 +34,9 @@ describe('Bank CRUD routes tests', function () {
                     example: 'Pleum',
                 }],
             }],
+            encrypt: false,
+            upload: false,
+            limitamount: false,
             encryptcmd: 'encryptCmd',
             uploadcmd: 'uploadCmd',
             maxamount: 200
@@ -107,6 +110,10 @@ describe('Bank CRUD routes tests', function () {
                         assert.equal(resp.data.rows[0].fields[0].seq, mockup.rows[0].fields[0].seq);
                         assert.equal(resp.data.rows[0].fields[0].example, mockup.rows[0].fields[0].example);
 
+                        assert.equal(resp.data.encrypt, mockup.encrypt);
+                        assert.equal(resp.data.upload, mockup.upload);
+                        assert.equal(resp.data.limitamount, mockup.limitamount);
+
                         assert.equal(resp.data.encryptcmd, mockup.encryptcmd);
                         assert.equal(resp.data.uploadcmd, mockup.uploadcmd);
                         assert.equal(resp.data.maxamount, mockup.maxamount);
@@ -143,6 +150,10 @@ describe('Bank CRUD routes tests', function () {
                 assert.equal(resp.data.rows[0].fields[0].defaultvalue, mockup.rows[0].fields[0].defaultvalue);
                 assert.equal(resp.data.rows[0].fields[0].seq, mockup.rows[0].fields[0].seq);
                 assert.equal(resp.data.rows[0].fields[0].example, mockup.rows[0].fields[0].example);
+
+                assert.equal(resp.data.encrypt, mockup.encrypt);
+                assert.equal(resp.data.upload, mockup.upload);
+                assert.equal(resp.data.limitamount, mockup.limitamount);
 
                 assert.equal(resp.data.encryptcmd, mockup.encryptcmd);
                 assert.equal(resp.data.uploadcmd, mockup.uploadcmd);
@@ -182,6 +193,9 @@ describe('Bank CRUD routes tests', function () {
                             example: 'Pleum',
                         }],
                     }],
+                    encrypt: false,
+                    upload: false,
+                    limitamount: false,
                     encryptcmd: 'encryptCmd',
                     uploadcmd: 'uploadCmd',
                     maxamount: 200
@@ -213,6 +227,10 @@ describe('Bank CRUD routes tests', function () {
                         assert.equal(resp.data.rows[0].fields[0].defaultvalue, update.rows[0].fields[0].defaultvalue);
                         assert.equal(resp.data.rows[0].fields[0].seq, update.rows[0].fields[0].seq);
                         assert.equal(resp.data.rows[0].fields[0].example, update.rows[0].fields[0].example);
+
+                        assert.equal(resp.data.encrypt, update.encrypt);
+                        assert.equal(resp.data.upload, update.upload);
+                        assert.equal(resp.data.limitamount, update.limitamount);
 
                         assert.equal(resp.data.encryptcmd, update.encryptcmd);
                         assert.equal(resp.data.uploadcmd, update.uploadcmd);
