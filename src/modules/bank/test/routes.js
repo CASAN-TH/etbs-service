@@ -28,6 +28,7 @@ describe('Bank CRUD routes tests', function () {
                     fieldname: 'Name',
                     fieldtype: 'String',
                     fieldlength: 50,
+                    required: false,
                     defaultvalue: '',
                     seq: 1,
                     example: 'Pleum',
@@ -101,6 +102,7 @@ describe('Bank CRUD routes tests', function () {
                         assert.equal(resp.data.rows[0].fields[0].fieldname, mockup.rows[0].fields[0].fieldname);
                         assert.equal(resp.data.rows[0].fields[0].fieldtype, mockup.rows[0].fields[0].fieldtype);
                         assert.equal(resp.data.rows[0].fields[0].fieldlength, mockup.rows[0].fields[0].fieldlength);
+                        assert.equal(resp.data.rows[0].fields[0].required, mockup.rows[0].fields[0].required);
                         assert.equal(resp.data.rows[0].fields[0].defaultvalue, mockup.rows[0].fields[0].defaultvalue);
                         assert.equal(resp.data.rows[0].fields[0].seq, mockup.rows[0].fields[0].seq);
                         assert.equal(resp.data.rows[0].fields[0].example, mockup.rows[0].fields[0].example);
@@ -137,6 +139,7 @@ describe('Bank CRUD routes tests', function () {
                 assert.equal(resp.data.rows[0].fields[0].fieldname, mockup.rows[0].fields[0].fieldname);
                 assert.equal(resp.data.rows[0].fields[0].fieldtype, mockup.rows[0].fields[0].fieldtype);
                 assert.equal(resp.data.rows[0].fields[0].fieldlength, mockup.rows[0].fields[0].fieldlength);
+                assert.equal(resp.data.rows[0].fields[0].required, mockup.rows[0].fields[0].required);
                 assert.equal(resp.data.rows[0].fields[0].defaultvalue, mockup.rows[0].fields[0].defaultvalue);
                 assert.equal(resp.data.rows[0].fields[0].seq, mockup.rows[0].fields[0].seq);
                 assert.equal(resp.data.rows[0].fields[0].example, mockup.rows[0].fields[0].example);
@@ -173,6 +176,7 @@ describe('Bank CRUD routes tests', function () {
                             fieldname: 'Name',
                             fieldtype: 'String',
                             fieldlength: 50,
+                            required: false,
                             defaultvalue: '',
                             seq: 1,
                             example: 'Pleum',
@@ -205,13 +209,14 @@ describe('Bank CRUD routes tests', function () {
                         assert.equal(resp.data.rows[0].fields[0].fieldname, update.rows[0].fields[0].fieldname);
                         assert.equal(resp.data.rows[0].fields[0].fieldtype, update.rows[0].fields[0].fieldtype);
                         assert.equal(resp.data.rows[0].fields[0].fieldlength, update.rows[0].fields[0].fieldlength);
+                        assert.equal(resp.data.rows[0].fields[0].required, update.rows[0].fields[0].required);
                         assert.equal(resp.data.rows[0].fields[0].defaultvalue, update.rows[0].fields[0].defaultvalue);
                         assert.equal(resp.data.rows[0].fields[0].seq, update.rows[0].fields[0].seq);
                         assert.equal(resp.data.rows[0].fields[0].example, update.rows[0].fields[0].example);
 
-                        assert.equal(resp.data.encryptcmd, mockup.encryptcmd);
-                        assert.equal(resp.data.uploadcmd, mockup.uploadcmd);
-                        assert.equal(resp.data.maxamount, mockup.maxamount);
+                        assert.equal(resp.data.encryptcmd, update.encryptcmd);
+                        assert.equal(resp.data.uploadcmd, update.uploadcmd);
+                        assert.equal(resp.data.maxamount, update.maxamount);
                         done();
                     });
             });

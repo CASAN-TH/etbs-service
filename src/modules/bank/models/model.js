@@ -45,6 +45,9 @@ var BankSchema = new Schema({
                             fieldlength: {
                                 type: Number,
                             },
+                            required: {
+                                type: Boolean,
+                            },
                             defaultvalue: {
                                 type: String,
                             },
