@@ -104,5 +104,6 @@ module.exports = {
     res.jsonp({
       data: data
     });
+    data = "";
   }
 }
