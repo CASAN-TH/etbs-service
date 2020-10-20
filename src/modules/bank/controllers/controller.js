@@ -8,6 +8,8 @@ var mongoose = require('mongoose'),
 
 const fs = require("fs");
 
+let dataTxtfile = "";
+
 exports.getList = function (req, res) {
     var pageNo = parseInt(req.query.pageNo);
     var size = parseInt(req.query.size);
@@ -119,19 +121,61 @@ exports.delete = function (req, res) {
     });
 };
 
-exports.exampleTxtfile = function (req, res) {
-    // console.log(req.body);
-    var data = "New File Contents";
-    fs.writeFile("temp.txt", data, (err) => {
-        if (err) console.log(err);
-        // console.log("Successfully Written to File.");
-        res.jsonp({
-            status: 200,
-            data: "Successfully Written to File."
-        });
-    });
-    // res.jsonp({
-    //     status: 200,
-    //     data: req.data ? req.data : []
-    // });
-}
+// exports.exampleTxtfile = function (req, res, next) {
+//     next();
+// }
+
+// exports.modifyData = function (req, res) {
+//     let bank = req.body;
+
+//     bank.rows.forEach(row => {
+//         switch (row.rowtype) {
+//             case "header":
+//                 modifyTxtfile(row.fields);
+//                 break;
+//             case "product":
+//                 modifyTxtfile(row.fields);
+//                 break;
+//             case "transection":
+//                 modifyTxtfile(row.fields);
+//                 break;
+//             case "footer":
+//                 modifyTxtfile(row.fields);
+//                 break;
+//         }
+//     })
+
+//     var text = dataTxtfile;
+//     res.setHeader('Content-type', "application/octet-stream");
+
+//     res.setHeader('Content-disposition', 'attachment; filename=file.txt');
+
+//     res.send(text);
+// }
+
+// modifyTxtfile = (fields) => {
+//     console.log('modifyTxtfile');
+//     let dataRow = "";
+//     fields.forEach(field => {
+//         switch (field.fieldtype) {
+//             case "char":
+//                 dataRow += `${field.example}`.padEnd(field.fieldlength, " ");
+//                 break;
+//             case "number":
+//                 dataRow += `${field.example}`.padStart(field.fieldlength, "0");
+//                 break;
+//             case "date":
+//                 dataRow += `${field.example}`.padStart(field.fieldlength, " ");
+//                 break;
+//             case "string":
+//                 dataRow += `${field.example}`.padEnd(field.fieldlength, " ");
+//                 break;
+//             case "time":
+//                 dataRow += `${field.example}`.padEnd(field.fieldlength, " ");
+//                 break;
+//             default:
+//                 break;
+//         }
+//     })
+//     dataTxtfile += data + '\n';
+// }

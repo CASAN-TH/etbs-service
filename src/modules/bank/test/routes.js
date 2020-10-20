@@ -339,19 +339,770 @@ describe('Bank CRUD routes tests', function () {
 
     });
 
-    it('should be exampleTxtfile post use token', (done) => {
+    xit('should be exampleTxtfile post use token', (done) => {
+        var exampleTxt = {
+            "name": "SCB",
+            "image": "https://image.freepik.com/free-photo/image-human-brain_99433-298.jpg",
+            "separatetype": true,
+            "separatechar": "",
+            "rows": [
+                {
+                    "fields": [
+                        {
+                            "fieldname": "Record Type",
+                            "fieldtype": "char",
+                            "fieldlength": 3,
+                            "required": true,
+                            "example": "001"
+                        },
+                        {
+                            "fieldname": "Company Id",
+                            "fieldtype": "char",
+                            "fieldlength": 12,
+                            "required": true,
+                            "example": "PLP0001"
+                        },
+                        {
+                            "fieldname": "Customer Reference",
+                            "fieldtype": "char",
+                            "fieldlength": 32,
+                            "required": true,
+                            "example": "PTA"
+                        },
+                        {
+                            "fieldname": "Message/File Date",
+                            "fieldtype": "date",
+                            "fieldlength": 8,
+                            "required": true,
+                            "example": "20201020"
+                        },
+                        {
+                            "fieldname": "Message/File Time",
+                            "fieldtype": "time",
+                            "fieldlength": 6,
+                            "required": true,
+                            "example": "000000"
+                        },
+                        {
+                            "fieldname": "Channel Id",
+                            "fieldtype": "char",
+                            "fieldlength": 3,
+                            "required": true,
+                            "example": "BCM"
+                        },
+                        {
+                            "fieldname": "Batch Reference",
+                            "fieldtype": "char",
+                            "fieldlength": 32,
+                            "required": false,
+                            "example": ""
+                        }
+                    ],
+                    "rowname": "Header",
+                    "rowtype": "header",
+                    "required": true
+                },
+                {
+                    "fields": [
+                        {
+                            "fieldname": "Record Type",
+                            "fieldtype": "char",
+                            "fieldlength": 3,
+                            "required": true,
+                            "example": "002"
+                        },
+                        {
+                            "fieldname": "Product Code",
+                            "fieldtype": "date",
+                            "fieldlength": 3,
+                            "required": true,
+                            "example": "Product Code"
+                        },
+                        {
+                            "fieldname": "Value Date",
+                            "fieldtype": "date",
+                            "fieldlength": 8,
+                            "required": true,
+                            "example": "20201020"
+                        },
+                        {
+                            "fieldname": "Debit Account No",
+                            "fieldtype": "char",
+                            "fieldlength": 25,
+                            "required": true,
+                            "example": "0333024799"
+                        },
+                        {
+                            "fieldname": "Account Type of Debit Account",
+                            "fieldtype": "number",
+                            "fieldlength": 2,
+                            "required": false,
+                            "example": "00"
+                        },
+                        {
+                            "fieldname": "Debit Branch Code",
+                            "fieldtype": "number",
+                            "fieldlength": 4,
+                            "required": false,
+                            "example": "0000"
+                        },
+                        {
+                            "fieldname": "Debit Currency",
+                            "fieldtype": "char",
+                            "fieldlength": 3,
+                            "required": true,
+                            "example": "THB"
+                        },
+                        {
+                            "fieldname": "Debit Amount",
+                            "fieldtype": "number",
+                            "fieldlength": 16,
+                            "required": true,
+                            "example": "0000006526489140"
+                        },
+                        {
+                            "fieldname": "Internal Reference",
+                            "fieldtype": "char",
+                            "fieldlength": 8,
+                            "required": true,
+                            "example": "00000001"
+                        },
+                        {
+                            "fieldname": "No. of Credits",
+                            "fieldtype": "number",
+                            "fieldlength": 6,
+                            "required": true,
+                            "example": "000143"
+                        },
+                        {
+                            "fieldname": "Fee Debit Account",
+                            "fieldtype": "char",
+                            "fieldlength": 15,
+                            "required": true,
+                            "example": "0333024799"
+                        },
+                        {
+                            "fieldname": "Filler",
+                            "fieldtype": "char",
+                            "fieldlength": 9,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Media Clearing Cycle (Filler)",
+                            "fieldtype": "char",
+                            "fieldlength": 1,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Account Type (Fee)",
+                            "fieldtype": "number",
+                            "fieldlength": 2,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Debit Branch Code (Fee)",
+                            "fieldtype": "number",
+                            "fieldlength": 4,
+                            "required": false,
+                            "example": ""
+                        }
+                    ],
+                    "rowname": "Debit Detail",
+                    "rowtype": "product",
+                    "required": true
+                },
+                {
+                    "fields": [
+                        {
+                            "fieldname": "Record Type",
+                            "fieldtype": "char",
+                            "fieldlength": 3,
+                            "required": true,
+                            "example": "003"
+                        },
+                        {
+                            "fieldname": "Credit Sequence Number",
+                            "fieldtype": "number",
+                            "fieldlength": 6,
+                            "required": true,
+                            "example": "000001"
+                        },
+                        {
+                            "fieldname": "Credit Account",
+                            "fieldtype": "char",
+                            "fieldlength": 25,
+                            "required": true,
+                            "example": "2062019657"
+                        },
+                        {
+                            "fieldname": "Credit Amount",
+                            "fieldtype": "number",
+                            "fieldlength": 16,
+                            "required": true,
+                            "example": "0000000000400000"
+                        },
+                        {
+                            "fieldname": "Credit Currency",
+                            "fieldtype": "char",
+                            "fieldlength": 3,
+                            "required": true,
+                            "example": "THB"
+                        },
+                        {
+                            "fieldname": "Internal Reference",
+                            "fieldtype": "char",
+                            "fieldlength": 8,
+                            "required": true,
+                            "example": "00000001"
+                        },
+                        {
+                            "fieldname": "WHT Present",
+                            "fieldtype": "char",
+                            "fieldlength": 1,
+                            "required": true,
+                            "example": "N"
+                        },
+                        {
+                            "fieldname": "Invoice Details Present",
+                            "fieldtype": "char",
+                            "fieldlength": 1,
+                            "required": true,
+                            "example": "N"
+                        },
+                        {
+                            "fieldname": "Credit Advice Required",
+                            "fieldtype": "char",
+                            "fieldlength": 1,
+                            "required": true,
+                            "example": "Y"
+                        },
+                        {
+                            "fieldname": "Delivery Mode",
+                            "fieldtype": "char",
+                            "fieldlength": 1,
+                            "required": false,
+                            "example": "S"
+                        },
+                        {
+                            "fieldname": "Pickup Location",
+                            "fieldtype": "char",
+                            "fieldlength": 4,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "WHT Form Type",
+                            "fieldtype": "number",
+                            "fieldlength": 2,
+                            "required": false,
+                            "example": "00"
+                        },
+                        {
+                            "fieldname": "WHT Tax Running No.",
+                            "fieldtype": "char",
+                            "fieldlength": 14,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "WHT Attach No.",
+                            "fieldtype": "number",
+                            "fieldlength": 6,
+                            "required": false,
+                            "example": "000000"
+                        },
+                        {
+                            "fieldname": "No. of WHT Details",
+                            "fieldtype": "number",
+                            "fieldlength": 2,
+                            "required": false,
+                            "example": "00"
+                        },
+                        {
+                            "fieldname": "Total WHT Amount",
+                            "fieldtype": "number",
+                            "fieldlength": 16,
+                            "required": false,
+                            "example": "0000000000000000"
+                        },
+                        {
+                            "fieldname": "No. of Invoice Details",
+                            "fieldtype": "number",
+                            "fieldlength": 6,
+                            "required": false,
+                            "example": "000000"
+                        },
+                        {
+                            "fieldname": "Total Invoice Amount",
+                            "fieldtype": "number",
+                            "fieldlength": 16,
+                            "required": false,
+                            "example": "000000000000000"
+                        },
+                        {
+                            "fieldname": "WHT Pay Type",
+                            "fieldtype": "number",
+                            "fieldlength": 1,
+                            "required": false,
+                            "example": "0"
+                        },
+                        {
+                            "fieldname": "WHT Remark",
+                            "fieldtype": "char",
+                            "fieldlength": 40,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "WHT Deduct Date",
+                            "fieldtype": "date",
+                            "fieldlength": 8,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Receiving Bank Code",
+                            "fieldtype": "number",
+                            "fieldlength": 3,
+                            "required": false,
+                            "example": "014"
+                        },
+                        {
+                            "fieldname": "Receiving Bank Name",
+                            "fieldtype": "char",
+                            "fieldlength": 35,
+                            "required": false,
+                            "example": "SIAM COMMERCIAL BANK PUBLIC CO"
+                        },
+                        {
+                            "fieldname": "Receiving Branch Code",
+                            "fieldtype": "number",
+                            "fieldlength": 4,
+                            "required": false,
+                            "example": "0000"
+                        },
+                        {
+                            "fieldname": "Receiving Branch Name",
+                            "fieldtype": "char",
+                            "fieldlength": 35,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "WHT Signatory",
+                            "fieldtype": "char",
+                            "fieldlength": 1,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Beneficiary Notification",
+                            "fieldtype": "char",
+                            "fieldlength": 1,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Customer Reference Number",
+                            "fieldtype": "char",
+                            "fieldlength": 20,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Cheque Reference Document Type",
+                            "fieldtype": "char",
+                            "fieldlength": 1,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Payment Type Code",
+                            "fieldtype": "char",
+                            "fieldlength": 3,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "ServicesType",
+                            "fieldtype": "char",
+                            "fieldlength": 2,
+                            "required": false,
+                            "example": "04"
+                        },
+                        {
+                            "fieldname": "Remark",
+                            "fieldtype": "char",
+                            "fieldlength": 50,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "SCB Remark",
+                            "fieldtype": "char",
+                            "fieldlength": 18,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Beneficiary Charge",
+                            "fieldtype": "char",
+                            "fieldlength": 2,
+                            "required": false,
+                            "example": "B"
+                        }
+                    ],
+                    "rowname": "Credit Detail",
+                    "rowtype": "transection",
+                    "required": true
+                },
+                {
+                    "fields": [
+                        {
+                            "fieldname": "Record Type",
+                            "fieldtype": "char",
+                            "fieldlength": 3,
+                            "required": true,
+                            "example": "004"
+                        },
+                        {
+                            "fieldname": "Internal Reference",
+                            "fieldtype": "char",
+                            "fieldlength": 0,
+                            "required": true,
+                            "example": "00000001"
+                        },
+                        {
+                            "fieldname": "Credit Sequence Number",
+                            "fieldtype": "number",
+                            "fieldlength": 6,
+                            "required": true,
+                            "example": "000001"
+                        },
+                        {
+                            "fieldname": "Payee1 IDCard ",
+                            "fieldtype": "number",
+                            "fieldlength": 15,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Payee1 Name (Thai)",
+                            "fieldtype": "char",
+                            "fieldlength": 100,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Payee1 Address 1",
+                            "fieldtype": "char",
+                            "fieldlength": 70,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Payee1 Address 2",
+                            "fieldtype": "char",
+                            "fieldlength": 70,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Payee1 Address 3",
+                            "fieldtype": "char",
+                            "fieldlength": 70,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Payee1 Tax ID",
+                            "fieldtype": "char",
+                            "fieldlength": 10,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Payee1 Name (English)",
+                            "fieldtype": "char",
+                            "fieldlength": 70,
+                            "required": false,
+                            "example": "'DR.���Ҿ�ó ����Ե�"
+                        },
+                        {
+                            "fieldname": "Payee1 Fax Number",
+                            "fieldtype": "number",
+                            "fieldlength": 10,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Payee1 Mobile Phone Number",
+                            "fieldtype": "number",
+                            "fieldlength": 10,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Payee1 E-mail Address",
+                            "fieldtype": "char",
+                            "fieldlength": 64,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Payee2 Name (Thai)",
+                            "fieldtype": "char",
+                            "fieldlength": 100,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Payee2 Address 1",
+                            "fieldtype": "char",
+                            "fieldlength": 70,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Payee2 Address 2",
+                            "fieldtype": "char",
+                            "fieldlength": 70,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Payee2 Address 3",
+                            "fieldtype": "char",
+                            "fieldlength": 70,
+                            "required": false,
+                            "example": ""
+                        }
+                    ],
+                    "rowname": "Payee Detail",
+                    "rowtype": "transection",
+                    "required": false
+                },
+                {
+                    "fields": [
+                        {
+                            "fieldname": "Record Type",
+                            "fieldtype": "char",
+                            "fieldlength": 3,
+                            "required": true,
+                            "example": "005"
+                        },
+                        {
+                            "fieldname": "Internal Reference",
+                            "fieldtype": "char",
+                            "fieldlength": 8,
+                            "required": true,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Credit Sequence No.",
+                            "fieldtype": "number",
+                            "fieldlength": 6,
+                            "required": true,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "WHT Sequence No.",
+                            "fieldtype": "number",
+                            "fieldlength": 2,
+                            "required": true,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "WHT Amount",
+                            "fieldtype": "number",
+                            "fieldlength": 16,
+                            "required": true,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "WHT Income Type",
+                            "fieldtype": "char",
+                            "fieldlength": 5,
+                            "required": true,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Income Description",
+                            "fieldtype": "char",
+                            "fieldlength": 77,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "WHT Deduct Rate",
+                            "fieldtype": "number",
+                            "fieldlength": 5,
+                            "required": true,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Income Type Amount",
+                            "fieldtype": "number",
+                            "fieldlength": 16,
+                            "required": true,
+                            "example": ""
+                        }
+                    ],
+                    "rowname": "WHT Detail",
+                    "rowtype": "transection",
+                    "required": false
+                },
+                {
+                    "fields": [
+                        {
+                            "fieldname": "Record Type",
+                            "fieldtype": "char",
+                            "fieldlength": 3,
+                            "required": true,
+                            "example": "006"
+                        },
+                        {
+                            "fieldname": "Internal Reference",
+                            "fieldtype": "char",
+                            "fieldlength": 8,
+                            "required": true,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Credit Sequence No.",
+                            "fieldtype": "number",
+                            "fieldlength": 6,
+                            "required": true,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Invoice Sequence No.",
+                            "fieldtype": "number",
+                            "fieldlength": 6,
+                            "required": true,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Invoice Number",
+                            "fieldtype": "char",
+                            "fieldlength": 15,
+                            "required": true,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Invoice Amount",
+                            "fieldtype": "number",
+                            "fieldlength": 16,
+                            "required": true,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Invoice Date",
+                            "fieldtype": "date",
+                            "fieldlength": 8,
+                            "required": true,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Invoice Description",
+                            "fieldtype": "char",
+                            "fieldlength": 70,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "PO Number",
+                            "fieldtype": "char",
+                            "fieldlength": 15,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "VAT Amount",
+                            "fieldtype": "number",
+                            "fieldlength": 16,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Payee Charge Amount",
+                            "fieldtype": "number",
+                            "fieldlength": 16,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "WHT Amount",
+                            "fieldtype": "number",
+                            "fieldlength": 16,
+                            "required": false,
+                            "example": ""
+                        },
+                        {
+                            "fieldname": "Print Language",
+                            "fieldtype": "char",
+                            "fieldlength": 1,
+                            "required": true,
+                            "example": ""
+                        }
+                    ],
+                    "rowname": "Invoice Detail",
+                    "rowtype": "transection",
+                    "required": false
+                },
+                {
+                    "fields": [
+                        {
+                            "fieldname": "Record Type",
+                            "fieldtype": "char",
+                            "fieldlength": 3,
+                            "required": true,
+                            "example": "999"
+                        },
+                        {
+                            "fieldname": "Total No. of Debits",
+                            "fieldtype": "number",
+                            "fieldlength": 6,
+                            "required": true,
+                            "example": "000002"
+                        },
+                        {
+                            "fieldname": "Total No. of Credits",
+                            "fieldtype": "number",
+                            "fieldlength": 6,
+                            "required": true,
+                            "example": "000403"
+                        },
+                        {
+                            "fieldname": "Total Amount",
+                            "fieldtype": "number",
+                            "fieldlength": 16,
+                            "required": true,
+                            "example": "0000022054740480"
+                        }
+                    ],
+                    "rowname": "Trailer",
+                    "rowtype": "footer",
+                    "required": true
+                }
+            ],
+            "encryptcmd": "test",
+            "uploadcmd": "test/test",
+            "maxamount": 5000000
+        };
         request(app)
             .post('/api/banks/example/txtfile')
             .set('Authorization', 'Bearer ' + token)
-            .send(mockup)
+            .send(exampleTxt)
             .expect(200)
             .end(function (err, res) {
                 if (err) {
                     return done(err);
                 }
                 var resp = res.body;
-                assert.equal(resp.status, 200);
-                assert.equal(resp.data, 'Successfully Written to File.');
                 done();
             });
     });
